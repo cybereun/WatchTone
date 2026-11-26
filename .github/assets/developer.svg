@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="196" height="30" viewBox="0 0 196 30" role="img" aria-label="Developer: Lebi_Cybereun">
+  <title>Developer: Lebi_Cybereun</title>
+  <defs><clipPath id="round"><rect width="196" height="30" rx="7"/></clipPath></defs>
+  <g clip-path="url(#round)">
+    <path fill="#28334a" d="M0 0h77v30H0z"/>
+    <path fill="#a4f4cf" d="M77 0h119v30H77z"/>
+    <g font-family="Segoe UI,Verdana,sans-serif" font-size="12" font-weight="700" text-anchor="middle">
+      <text x="38" y="19" fill="#fff">Developer</text>
+      <text x="136" y="19" fill="#112820">Lebi_Cybereun</text>
+    </g>
+  </g>
+</svg>
