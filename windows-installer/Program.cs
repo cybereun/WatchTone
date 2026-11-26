@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 [assembly: AssemblyTitle("워치벨 설치 도우미")]
 [assembly: AssemblyCompany("Lebi Studio")]
-[assembly: AssemblyFileVersion("1.0.1.0")]
+[assembly: AssemblyFileVersion("1.0.2.0")]
 
 internal sealed partial class Installer : Form {
     private const string ApkName = "WatchTone-watch-1.0.0.apk";
@@ -41,16 +41,16 @@ internal sealed partial class Installer : Form {
         Font = new Font("Malgun Gothic",10);
         ForeColor = Ink;
         BackColor = Paper;
-        ClientSize = new Size(864,662);
+        ClientSize = new Size(864,695);
         MinimumSize = new Size(690,510);
         Controls.Add(body);
         var layout = new TableLayoutPanel {
-            Bounds = new Rectangle(24,20,816,622), ColumnCount = 2, RowCount = 4,
+            Bounds = new Rectangle(24,20,816,655), ColumnCount = 2, RowCount = 5,
             BackColor = Paper, Margin = Padding.Empty
         };
         layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,50));
         layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,50));
-        foreach (int height in new[] { 139,188,226,63 })
+        foreach (int height in new[] { 139,188,226,63,33 })
             layout.RowStyles.Add(new RowStyle(SizeType.Absolute,height));
         body.Controls.Add(layout);
         body.Resize += (s,e) => CenterLayout(layout);
@@ -112,6 +112,15 @@ internal sealed partial class Installer : Form {
         status.Bounds = new Rectangle(107,7,665,45);
         status.Text = "APK를 선택하고 워치를 연결하세요.";
         feedback.Controls.Add(status);
+
+        var credit = new Label {
+            Text = "@2026 Lebi_Cybereun", TextAlign = ContentAlignment.MiddleCenter,
+            Dock = DockStyle.Fill, ForeColor = Muted, Font = new Font(Font.FontFamily,9),
+            Margin = new Padding(4,0,4,0)
+        };
+        layout.Controls.Add(credit,0,4);
+        layout.SetColumnSpan(credit,2);
+
 
         var sibling = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,ApkName);
         if (File.Exists(sibling)) SelectApk(sibling);
