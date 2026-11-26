@@ -2,4 +2,5 @@
 **/build/
 local.properties
 *.jks
-*.idsig/release/
+*.idsig
+/release/
