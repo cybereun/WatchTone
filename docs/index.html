@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>워치벨 | 내 MP3를 갤럭시 워치 벨소리로</title>
+<meta name="description" content="휴대폰 속 MP3를 갤럭시 워치로 보내고 기본 전화 벨소리로 지정하세요. 워치벨 v1.0.0 설치 파일과 사용법.">
+<meta name="theme-color" content="#0b1916">
+<link rel="icon" href="./media/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="wrap nav"><a class="brand" href="./"><img src="./media/icon.svg" alt="">워치벨</a><nav aria-label="주 메뉴"><a href="#film" hidden>소개 영상</a><a href="#install">설치·사용법</a></nav></header>
+<main>
+<section class="wrap hero">
+<div class="pitch"><p class="eyebrow">갤럭시 워치 벨소리</p>
+<h1>내가 고른 곡을,<br><em>손목에.</em></h1>
+<p class="intro">휴대폰에 있는 MP3를 워치로 보내고 기본 전화 벨소리로 지정하세요. MP3를 고르고, 미리 듣고, 워치로 보내면 됩니다.</p>
+<div class="actions">
+<a class="button primary" href="https://github.com/cybereun/WatchTone/releases/download/v1.0.0/WatchTone-phone-1.0.0.apk">휴대폰용 APK <span aria-hidden="true">↓</span></a>
+<a class="button" href="https://github.com/cybereun/WatchTone/releases/download/v1.0.0/WatchTone-watch-1.0.0.apk">워치용 APK <span aria-hidden="true">↓</span></a>
+</div>
+<p class="meta">v1.0.0 · 두 기기에 각각 설치</p></div>
+<figure class="devices">
+<div class="device-stage">
+<div class="phone"><img src="./media/phone.webp" alt="워치벨 휴대폰 앱에서 MP3를 선택하고 워치 벨소리로 보내는 화면" width="540" height="1170" fetchpriority="high"></div>
+<div class="watch"><img src="./media/watch.webp" alt="워치벨 워치 앱의 벨소리 화면" width="450" height="450" fetchpriority="high"></div>
+</div>
+<figcaption>실제 워치벨 v1.0.0 화면 · 에뮬레이터 캡처</figcaption>
+</figure>
+</section>
+<section class="wrap section" id="film" hidden>
+<p class="eyebrow">90초 홍보 다큐</p><h2>왜 워치벨을 만들었을까?</h2>
+<p>만든 이유부터 설치, MP3 전송까지 한 번에 볼 수 있습니다. 영상은 무음이며 한국어 자막을 지원합니다.</p>
+<video controls playsinline preload="metadata" poster="./media/film-poster.webp" aria-label="워치벨 90초 소개 영상">
+<source src="./media/watchtone-film.mp4" type="video/mp4">
+<track kind="captions" src="./media/watchtone-film.ko.vtt" srclang="ko" label="한국어" default>
+</video>
+</section>
+<section class="wrap section" id="install">
+<p class="eyebrow">시작하기</p><h2>두 기기에 설치하고 곡 고르기</h2>
+<div class="cards">
+<article><h3>휴대폰에 설치</h3><p>휴대폰용 APK를 받은 뒤 <strong>내 파일 → 다운로드</strong>에서 엽니다. 설치 허용 안내가 뜨면 해당 파일을 연 앱에 한해 허용하고 설치합니다.</p></article>
+<article><h3>워치에 설치</h3><p>워치와 Windows PC를 같은 Wi-Fi에 연결합니다. 워치에서 무선 디버깅을 켠 뒤 PC에서 워치용 APK를 설치합니다.</p><a href="#watch-install">워치 설치 명령 보기 ↓</a></article>
+<article><h3>MP3 보내기</h3><p>휴대폰과 워치를 연결하고 워치벨을 한 번씩 엽니다. 휴대폰에서 <strong>MP3 선택 → 워치 벨소리로 설정</strong>을 누릅니다. 최대 32MB까지 지원합니다.</p></article>
+<article><h3>벨소리 적용 및 확인</h3><p>처음에는 워치의 <strong>벨소리 적용</strong>을 누르고 시스템 설정 변경을 허용합니다. 워치가 소리 모드일 때 다른 전화로 휴대폰에 걸어 소리를 확인합니다.</p></article>
+</div>
+<div class="details" id="watch-install"><h3>Windows에서 워치용 APK 설치하기</h3>
+<ol>
+<li><a href="https://developer.android.com/tools/releases/platform-tools">Android SDK Platform-Tools</a>의 Windows용 ZIP을 풀고, 워치용 APK를 <code>platform-tools</code> 폴더에 넣은 뒤 그 폴더에서 PowerShell을 엽니다.</li>
+<li>워치에서 <strong>설정 → 워치 정보 → 소프트웨어 정보</strong>를 열어 소프트웨어 버전을 다섯 번 누릅니다. 개발자 옵션에서 <strong>ADB 디버깅</strong>과 <strong>무선 디버깅</strong>을 켭니다.</li>
+<li><strong>새 기기 페어링</strong> 화면에 표시된 주소와 포트를 첫 명령에 넣고, PowerShell에서 코드를 묻는 메시지가 나오면 워치의 코드를 입력합니다.<pre><code>.\adb pair 192.168.0.20:37099</code></pre></li>
+<li>무선 디버깅 첫 화면에 나온 <strong>연결 주소와 포트</strong>로 아래 두 줄의 예시 주소를 바꿉니다. 설치가 끝나면 워치 앱 목록에서 <strong>워치벨</strong>을 엽니다.<pre><code>.\adb connect 192.168.0.20:38011
+.\adb -s 192.168.0.20:38011 install WatchTone-watch-1.0.0.apk</code></pre></li>
+</ol></div>
+</section>
+<section class="wrap section faq"><h2>자주 묻는 질문</h2>
+<details><summary>워치를 찾지 못했다고 나와요</summary><p>Galaxy Wearable에서 연결 상태를 확인하세요. 워치에 워치용 APK를 설치하고 워치벨을 한 번 연 뒤, 휴대폰에서 다시 보내 보세요.</p></details>
+<details><summary>이전 벨소리로 돌아갈 수 있나요?</summary><p>워치에서 <strong>워치벨 → 이전 벨소리 복원</strong>을 누릅니다.</p></details>
+<details><summary>어떤 기기에서 확인했나요?</summary><p>갤럭시 S24 울트라와 갤럭시 워치4 클래식에서 MP3 전송과 워치 기본 벨소리 설정 변경을 확인했습니다. 실제 수신음은 위의 전화 테스트로 확인해 주세요.</p></details>
+</section>
+</main>
+<footer class="wrap footer"><span>워치벨 · Lebi Studio</span><a href="https://github.com/cybereun/WatchTone/releases/tag/v1.0.0">v1.0.0 릴리스</a></footer>
+</body>
+</html>
