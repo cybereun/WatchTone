@@ -1,0 +1,21 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'kr.lebistudio.watchtone'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'kr.lebistudio.watchtone'
+        minSdk 30
+        targetSdk 35
+        versionName '1.0.0'
+    }
+    flavorDimensions 'device'
+    productFlavors {
+        phone { dimension 'device'; versionCode 10001 }
+        watch { dimension 'device'; versionCode 10002 }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+dependencies { implementation 'com.google.android.gms:play-services-wearable:19.0.0' }

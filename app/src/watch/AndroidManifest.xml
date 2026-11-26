@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-feature android:name="android.hardware.type.watch" android:required="true"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <application>
+        <meta-data android:name="com.google.android.wearable.standalone" android:value="false"/>
+        <service android:name=".SyncService" android:exported="true"><intent-filter>
+            <action android:name="com.google.android.gms.wearable.DATA_CHANGED"/>
+            <data android:scheme="wear" android:host="*" android:path="/watchtone/request"/>
+        </intent-filter></service>
+    </application>
+</manifest>
