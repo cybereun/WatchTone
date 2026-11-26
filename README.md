@@ -20,3 +20,7 @@ JDK, Android SDK 플랫폼 35, 빌드 도구 35.0.0이 필요합니다. Android 
 ## 설치 후 사용
 
 두 기기에서 앱을 한 번씩 열고 휴대폰에서 MP3를 고릅니다. **워치 벨소리로 설정**을 누르고, 워치에서 요청할 경우 **벨소리 적용**과 시스템 설정 변경 허용을 진행합니다. 워치를 소리 모드로 두고 다른 휴대폰에서 전화를 걸어 선택한 곡이 울리는지 확인할 수 있습니다.
+
+## Windows 설치 도우미
+
+[설치 도우미 EXE](https://github.com/cybereun/WatchTone/releases/download/v1.0.0/WatchTone-Windows-Installer-1.0.0.exe)에서 공식 v1.0.0 워치용 APK를 선택해 설치할 수 있습니다. 첫 연결 때 연결 도구를 Google에서 내려받습니다. 도우미 소스는 windows-installer 폴더에 있습니다.

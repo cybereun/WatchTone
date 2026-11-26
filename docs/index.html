@@ -41,18 +41,27 @@
 <p class="eyebrow">시작하기</p><h2>두 기기에 설치하고 곡 고르기</h2>
 <div class="cards">
 <article><h3>휴대폰에 설치</h3><p>휴대폰용 APK를 받은 뒤 <strong>내 파일 → 다운로드</strong>에서 엽니다. 설치 허용 안내가 뜨면 해당 파일을 연 앱에 한해 허용하고 설치합니다.</p></article>
-<article><h3>워치에 설치</h3><p>워치와 Windows PC를 같은 Wi-Fi에 연결합니다. 워치에서 무선 디버깅을 켠 뒤 PC에서 워치용 APK를 설치합니다.</p><a href="#watch-install">워치 설치 명령 보기 ↓</a></article>
+<article><h3>워치에 설치</h3><p>Windows 설치 도우미에서 워치용 APK를 고르고, 연결한 워치에 설치합니다.</p><a href="#watch-install">버튼으로 설치하는 방법 ↓</a></article>
 <article><h3>MP3 보내기</h3><p>휴대폰과 워치를 연결하고 워치벨을 한 번씩 엽니다. 휴대폰에서 <strong>MP3 선택 → 워치 벨소리로 설정</strong>을 누릅니다. 최대 32MB까지 지원합니다.</p></article>
 <article><h3>벨소리 적용 및 확인</h3><p>처음에는 워치의 <strong>벨소리 적용</strong>을 누르고 시스템 설정 변경을 허용합니다. 워치가 소리 모드일 때 다른 전화로 휴대폰에 걸어 소리를 확인합니다.</p></article>
 </div>
-<div class="details" id="watch-install"><h3>Windows에서 워치용 APK 설치하기</h3>
+<div class="details" id="watch-install"><h3>Windows에서 버튼으로 워치에 설치하기</h3>
+<p>Windows PC에 <strong>설치 도우미 EXE</strong>와 <strong>워치용 APK</strong> 두 파일을 받습니다. PowerShell을 열거나 Platform-Tools ZIP을 직접 풀 필요가 없습니다.</p>
+<div class="actions"><a class="button primary" href="https://github.com/cybereun/WatchTone/releases/download/v1.0.0/WatchTone-Windows-Installer-1.0.0.exe">Windows 설치 도우미 ↓</a><a class="button" href="https://github.com/cybereun/WatchTone/releases/download/v1.0.0/WatchTone-watch-1.0.0.apk">워치용 APK ↓</a></div>
+<ol>
+<li>PC에서 도우미를 실행한 뒤 <strong>APK 선택</strong>을 눌러 워치용 APK를 고릅니다.</li>
+<li>PC와 워치를 같은 Wi-Fi에 연결하고 워치에서 <strong>ADB 디버깅</strong>과 <strong>무선 디버깅</strong>을 켭니다. 메뉴 경로는 도우미에 표시됩니다.</li>
+<li><strong>이미 연결된 워치 찾기</strong>를 누릅니다. 처음 실행할 때는 Google의 연결 도구 다운로드를 허용하세요. 워치가 목록에 없으면 <strong>새 기기 페어링</strong> 화면의 주소와 6자리 코드를 도우미에 입력합니다.</li>
+<li>페어링 뒤에도 목록에 없으면 워치의 무선 디버깅 첫 화면에 있는 연결 주소로 <strong>워치 연결</strong>을 누릅니다. 목록에서 워치를 선택하고 <strong>선택한 워치에 설치</strong>를 누르세요.</li>
+</ol>
+<details class="manual-install"><summary>영상과 같은 PowerShell 설치 방법 보기</summary>
 <ol>
 <li><a href="https://developer.android.com/tools/releases/platform-tools">Android SDK Platform-Tools</a>의 Windows용 ZIP을 풀고, 워치용 APK를 <code>platform-tools</code> 폴더에 넣은 뒤 그 폴더에서 PowerShell을 엽니다.</li>
 <li>워치에서 <strong>설정 → 워치 정보 → 소프트웨어 정보</strong>를 열어 소프트웨어 버전을 다섯 번 누릅니다. 개발자 옵션에서 <strong>ADB 디버깅</strong>과 <strong>무선 디버깅</strong>을 켭니다.</li>
 <li><strong>새 기기 페어링</strong> 화면에 표시된 주소와 포트를 첫 명령에 넣고, PowerShell에서 코드를 묻는 메시지가 나오면 워치의 코드를 입력합니다.<pre><code>.\adb pair 192.168.0.20:37099</code></pre></li>
 <li>무선 디버깅 첫 화면에 나온 <strong>연결 주소와 포트</strong>로 아래 두 줄의 예시 주소를 바꿉니다. 설치가 끝나면 워치 앱 목록에서 <strong>워치벨</strong>을 엽니다.<pre><code>.\adb connect 192.168.0.20:38011
 .\adb -s 192.168.0.20:38011 install WatchTone-watch-1.0.0.apk</code></pre></li>
-</ol></div>
+</ol></details></div>
 </section>
 <section class="wrap section faq"><h2>자주 묻는 질문</h2>
 <details><summary>워치를 찾지 못했다고 나와요</summary><p>Galaxy Wearable에서 연결 상태를 확인하세요. 워치에 워치용 APK를 설치하고 워치벨을 한 번 연 뒤, 휴대폰에서 다시 보내 보세요.</p></details>
