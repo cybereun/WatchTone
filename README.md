@@ -23,4 +23,4 @@ JDK, Android SDK 플랫폼 35, 빌드 도구 35.0.0이 필요합니다. Android 
 
 ## Windows 설치 도우미
 
-[설치 도우미 EXE](https://github.com/cybereun/WatchTone/releases/download/v1.0.0/WatchTone-Windows-Installer-1.0.0.exe)에서 공식 v1.0.0 워치용 APK를 선택해 설치할 수 있습니다. 첫 연결 때 연결 도구를 Google에서 내려받습니다. 도우미 소스는 windows-installer 폴더에 있습니다.
+[설치 도우미 EXE](https://github.com/cybereun/WatchTone/releases/download/v1.0.0/WatchTone-Windows-Installer-1.0.1.exe)에서 공식 v1.0.0 워치용 APK를 선택해 설치할 수 있습니다. 첫 연결 때 연결 도구를 Google에서 내려받습니다. 도우미 소스는 windows-installer 폴더에 있습니다.
