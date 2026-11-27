@@ -34,12 +34,6 @@ final class Tones {
         return plain;
     }
     boolean same(Uri a,Uri b){return java.util.Objects.equals(plain(a),plain(b));}
-    private Uri pickerUri(Uri stored){
-        // Samsung's ringtone picker matches the canonical URI from the external audio list.
-        Uri external=plain(stored);
-        Uri canonical=cr.canonicalize(external);
-        return canonical==null ? external : canonical;
-    }
     boolean available(Uri u){
         if(u==null)return false;
         try(android.os.ParcelFileDescriptor fd=cr.openFileDescriptor(u,"r")){return fd!=null;}
@@ -97,20 +91,21 @@ final class Tones {
         Uri target=decoded("uri");if(target==null)return;
         try{
             if(!available(target)){report("저장된 곡을 열 수 없습니다. 휴대폰에서 다시 보내 주세요.");return;}
-            Uri pickerTarget=pickerUri(target);
-            if(!available(pickerTarget)){report("워치 벨소리 목록에서 곡을 열 수 없습니다. 휴대폰에서 다시 보내 주세요.");return;}
+            if(!Settings.System.canWrite(ctx)){report(MANUAL);return;}
+            Uri playbackUri=CallSoundProvider.selectedUri(ctx);
             Uri before=current();
-            if(!pickerTarget.equals(before)){
-                if(!Settings.System.canWrite(ctx)){report(MANUAL);return;}
-                if(!prefs.contains("original") || !same(before,decoded("lastApplied")))
-                    prefs.edit().putString("original",encode(before)).commit();
-                RingtoneManager.setActualDefaultRingtoneUri(ctx,TYPE,pickerTarget);
-            }
-            if(pickerTarget.equals(current())){
-                prefs.edit().putString("lastApplied",target.toString()).commit();
-                report("워치 기본 벨소리에 적용됐습니다. 실제 전화로 소리를 확인해 주세요.");
-            }else report("파일이 저장됐습니다. 워치 설정에서 곡을 직접 선택해 주세요.");
-        }catch(RuntimeException e){report("워치에 저장했습니다. 설정 → 소리 및 진동 → 벨소리에서 곡을 선택해 주세요.");}
+            if(!prefs.contains("original") || !same(before,decoded("lastApplied")))
+                prefs.edit().putString("original",encode(before)).commit();
+            CallSoundProvider.prepare(ctx,target);
+            if(!same(playbackUri,before))RingtoneManager.setActualDefaultRingtoneUri(ctx,TYPE,playbackUri);
+            if(same(playbackUri,current())){
+                prefs.edit().putString("lastApplied",playbackUri.toString()).commit();
+                report("워치 기본 벨소리를 지정했습니다. 실제 전화로 소리를 확인해 주세요.");
+            }else report("워치가 벨소리 변경을 허용하지 않았습니다.");
+        }catch(Exception e){
+            android.util.Log.w("WatchTone","Unable to prepare call ringtone",e);
+            report("통화 벨소리를 준비하지 못했습니다. 저장 공간과 권한을 확인해 주세요.");
+        }
     }
     void restore(){
         if(!prefs.contains("original"))return;

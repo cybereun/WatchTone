@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>워치벨 | 내 MP3를 갤럭시 워치 벨소리로</title>
-<meta name="description" content="휴대폰 속 MP3를 갤럭시 워치로 보내고 기본 전화 벨소리로 지정하세요. 워치벨 v1.0.1 설치 파일과 사용법.">
+<meta name="description" content="휴대폰 속 MP3를 갤럭시 워치로 보내고 기본 전화 벨소리로 지정하세요. 워치벨 v1.0.2 설치 파일과 사용법.">
 <meta name="theme-color" content="#0b1916">
 <link rel="icon" href="./media/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="./style.css?v=2">
@@ -17,10 +17,10 @@
 <h1><span>내가 고른 곡을,</span> <em>손목에.</em></h1>
 <p class="intro">휴대폰에 있는 MP3를 워치로 보내고 기본 전화 벨소리로 지정하세요. MP3를 고르고, 미리 듣고, 워치로 보내면 됩니다.</p>
 <div class="actions">
-<a class="button primary" href="https://github.com/cybereun/WatchTone/releases/download/v1.0.1/WatchTone-phone-1.0.1.apk">휴대폰용 APK <span aria-hidden="true">↓</span></a>
-<a class="button" href="https://github.com/cybereun/WatchTone/releases/download/v1.0.1/WatchTone-watch-1.0.1.apk">워치용 APK <span aria-hidden="true">↓</span></a>
+<a class="button primary" href="https://github.com/cybereun/WatchTone/releases/download/v1.0.2/WatchTone-phone-1.0.2.apk">휴대폰용 APK <span aria-hidden="true">↓</span></a>
+<a class="button" href="https://github.com/cybereun/WatchTone/releases/download/v1.0.2/WatchTone-watch-1.0.2.apk">워치용 APK <span aria-hidden="true">↓</span></a>
 </div>
-<p class="meta">v1.0.1 · 두 기기에 각각 설치</p></div>
+<p class="meta">v1.0.2 · 두 기기에 각각 설치</p></div>
 <figure class="devices">
 <div class="device-stage">
 <div class="phone"><img src="./media/phone.webp" alt="워치벨 휴대폰 앱에서 MP3를 선택하고 워치 벨소리로 보내는 화면" width="540" height="1170" fetchpriority="high"></div>
@@ -47,7 +47,7 @@
 </div>
 <div class="details" id="watch-install"><h3>Windows에서 버튼으로 워치에 설치하기</h3>
 <p>Windows PC에 <strong>설치 도우미 EXE</strong>와 <strong>워치용 APK</strong> 두 파일을 받습니다. PowerShell을 열거나 Platform-Tools ZIP을 직접 풀 필요가 없습니다.</p>
-<div class="actions"><a class="button primary" href="https://github.com/cybereun/WatchTone/releases/download/v1.0.1/WatchTone-Windows-Installer-1.0.3.exe">Windows 설치 도우미 ↓</a><a class="button" href="https://github.com/cybereun/WatchTone/releases/download/v1.0.1/WatchTone-watch-1.0.1.apk">워치용 APK ↓</a></div>
+<div class="actions"><a class="button primary" href="https://github.com/cybereun/WatchTone/releases/download/v1.0.2/WatchTone-Windows-Installer-1.0.4.exe">Windows 설치 도우미 ↓</a><a class="button" href="https://github.com/cybereun/WatchTone/releases/download/v1.0.2/WatchTone-watch-1.0.2.apk">워치용 APK ↓</a></div>
 <ol>
 <li>PC에서 도우미를 실행한 뒤 <strong>APK 선택</strong>을 눌러 워치용 APK를 고릅니다.</li>
 <li>PC와 워치를 같은 Wi-Fi에 연결하고 워치에서 <strong>ADB 디버깅</strong>과 <strong>무선 디버깅</strong>을 켭니다. 메뉴 경로는 도우미에 표시됩니다.</li>
@@ -60,15 +60,15 @@
 <li>워치에서 <strong>설정 → 워치 정보 → 소프트웨어 정보</strong>를 열어 소프트웨어 버전을 다섯 번 누릅니다. 개발자 옵션에서 <strong>ADB 디버깅</strong>과 <strong>무선 디버깅</strong>을 켭니다.</li>
 <li><strong>새 기기 페어링</strong> 화면에 표시된 주소와 포트를 첫 명령에 넣고, PowerShell에서 코드를 묻는 메시지가 나오면 워치의 코드를 입력합니다.<pre><code>.\adb pair 192.168.0.20:37099</code></pre></li>
 <li>무선 디버깅 첫 화면에 나온 <strong>연결 주소와 포트</strong>로 아래 두 줄의 예시 주소를 바꿉니다. 설치가 끝나면 워치 앱 목록에서 <strong>워치벨</strong>을 엽니다.<pre><code>.\adb connect 192.168.0.20:38011
-.\adb -s 192.168.0.20:38011 install WatchTone-watch-1.0.1.apk</code></pre></li>
+.\adb -s 192.168.0.20:38011 install WatchTone-watch-1.0.2.apk</code></pre></li>
 </ol></details></div>
 </section>
 <section class="wrap section faq"><h2>자주 묻는 질문</h2>
 <details><summary>워치를 찾지 못했다고 나와요</summary><p>Galaxy Wearable에서 연결 상태를 확인하세요. 워치에 워치용 APK를 설치하고 워치벨을 한 번 연 뒤, 휴대폰에서 다시 보내 보세요.</p></details>
 <details><summary>이전 벨소리로 돌아갈 수 있나요?</summary><p>워치에서 <strong>워치벨 → 이전 벨소리 복원</strong>을 누릅니다.</p></details>
-<details><summary>어떤 기기에서 확인했나요?</summary><p>갤럭시 S24 울트라에서 MP3를 전송했고, 갤럭시 워치4 클래식의 벨소리 목록에서 해당 곡이 선택되는 것을 확인했습니다. 실제 수신음과 휴대폰 Galaxy Wearable 목록 표시는 아직 확인 중입니다.</p></details>
+<details><summary>어떤 기기에서 확인했나요?</summary><p>갤럭시 S24 울트라와 갤럭시 워치4 클래식 조합에서 실제 전화 수신 시 전송한 MP3가 워치 스피커에서 재생되는 것을 확인했습니다. 추가한 MP3의 적용은 워치벨에서 관리하세요.</p></details>
 </section>
 </main>
-<footer class="wrap footer"><span>워치벨 · Lebi Studio</span><a href="https://github.com/cybereun/WatchTone/releases/tag/v1.0.1">v1.0.1 릴리스</a></footer>
+<footer class="wrap footer"><span>워치벨 · Lebi Studio</span><a href="https://github.com/cybereun/WatchTone/releases/tag/v1.0.2">v1.0.2 릴리스</a></footer>
 </body>
 </html>

@@ -31,7 +31,7 @@ try {
     $signer=Join-Path $SdkPath 'build-tools\35.0.0\apksigner.bat'
     foreach($device in 'phone','watch'){
         $unsigned=Join-Path $PSScriptRoot "app\build\outputs\apk\$device\release\app-$device-release-unsigned.apk"
-        $target=Join-Path $release "WatchTone-$device-1.0.1.apk"
+        $target=Join-Path $release "WatchTone-$device-1.0.2.apk"
         & $signer sign --ks $keyFile --ks-key-alias watchtone --ks-pass env:WATCHTONE_SIGN_PASSWORD --v4-signing-enabled false --out $target $unsigned
         if($LASTEXITCODE){throw "Signing failed for $device"}
         & $signer verify --verbose --print-certs $target

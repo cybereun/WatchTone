@@ -7,10 +7,10 @@ using System.Windows.Forms;
 
 [assembly: AssemblyTitle("워치벨 설치 도우미")]
 [assembly: AssemblyCompany("Lebi Studio")]
-[assembly: AssemblyFileVersion("1.0.3.0")]
+[assembly: AssemblyFileVersion("1.0.4.0")]
 
 internal sealed partial class Installer : Form {
-    private const string ApkName = "WatchTone-watch-1.0.1.apk";
+    private const string ApkName = "WatchTone-watch-1.0.2.apk";
     private static readonly Color Paper = Color.FromArgb(249,247,244);
     private static readonly Color Ink = Color.FromArgb(41,35,70);
     private static readonly Color Muted = Color.FromArgb(83,77,106);
@@ -62,7 +62,7 @@ internal sealed partial class Installer : Form {
         AddText(hero,"워치용 APK를 선택해 갤럭시 워치에 설치하세요.",10,Muted,false,27,75,500,26);
 
         var file = Card(layout,0,1,"1","워치용 APK 선택",false);
-        AddText(file,"다운로드한 워치벨 v1.0.1의 워치용 파일을 고르세요.",9,Muted,false,19,61,367,37);
+        AddText(file,"다운로드한 워치벨 v1.0.2의 워치용 파일을 고르세요.",9,Muted,false,19,61,367,37);
         AddField(file,apk,"워치용 APK",20,106,221);
         AddButton(file,"APK 선택",Choose,246,125,126);
 
