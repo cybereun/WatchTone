@@ -5,7 +5,7 @@
 갤럭시 휴대폰의 MP3를 Wear OS 워치로 보내 기본 전화 벨소리로 지정합니다.
 
 - [소개 영상과 설치 안내](https://cybereun.github.io/WatchTone/)
-- [v1.0.0 다운로드](https://github.com/cybereun/WatchTone/releases/tag/v1.0.0)
+- [v1.0.1 다운로드](https://github.com/cybereun/WatchTone/releases/tag/v1.0.1)
 
 휴대폰에는 휴대폰용 APK를, 워치에는 워치용 APK를 설치합니다. 앱은 같은 패키지 이름과 같은 인증서로 서명되어야 합니다. 갤럭시 S24 울트라와 갤럭시 워치4 클래식에서 MP3 전송과 워치 시스템 기본 벨소리 변경을 확인했습니다.
 
@@ -44,7 +44,7 @@ JDK, Android SDK 플랫폼 35, 빌드 도구 35.0.0이 필요합니다. Android 
 
 ## Windows 설치 도우미
 
-[설치 도우미 EXE](https://github.com/cybereun/WatchTone/releases/download/v1.0.0/WatchTone-Windows-Installer-1.0.2.exe)에서 공식 v1.0.0 워치용 APK를 선택해 설치할 수 있습니다. 첫 연결 때 연결 도구를 Google에서 내려받습니다. 도우미 소스는 windows-installer 폴더에 있습니다.
+[설치 도우미 EXE](https://github.com/cybereun/WatchTone/releases/download/v1.0.1/WatchTone-Windows-Installer-1.0.3.exe)에서 공식 v1.0.1 워치용 APK를 선택해 설치할 수 있습니다. 첫 연결 때 연결 도구를 Google에서 내려받습니다. 도우미 소스는 windows-installer 폴더에 있습니다.
 
 ## 개발자
 

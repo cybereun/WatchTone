@@ -24,9 +24,22 @@ final class Tones {
         try{Uri raw=cr.uncanonicalize(u);if(raw!=null)u=raw;}catch(RuntimeException ignored){}
         String authority=u.getAuthority();
         if(authority!=null && authority.matches("[0-9]+@media"))authority="media";
-        return u.buildUpon().authority(authority).clearQuery().fragment(null).build();
+        Uri plain=u.buildUpon().authority(authority).clearQuery().fragment(null).build();
+        if("media".equals(authority) && plain.getPathSegments().size()==4 &&
+                "external_primary".equals(plain.getPathSegments().get(0)) &&
+                "audio".equals(plain.getPathSegments().get(1)) &&
+                "media".equals(plain.getPathSegments().get(2))){
+            return ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,ContentUris.parseId(plain));
+        }
+        return plain;
     }
     boolean same(Uri a,Uri b){return java.util.Objects.equals(plain(a),plain(b));}
+    private Uri pickerUri(Uri stored){
+        // Samsung's ringtone picker matches the canonical URI from the external audio list.
+        Uri external=plain(stored);
+        Uri canonical=cr.canonicalize(external);
+        return canonical==null ? external : canonical;
+    }
     boolean available(Uri u){
         if(u==null)return false;
         try(android.os.ParcelFileDescriptor fd=cr.openFileDescriptor(u,"r")){return fd!=null;}
@@ -84,14 +97,16 @@ final class Tones {
         Uri target=decoded("uri");if(target==null)return;
         try{
             if(!available(target)){report("저장된 곡을 열 수 없습니다. 휴대폰에서 다시 보내 주세요.");return;}
-            if(!same(target,current())){
+            Uri pickerTarget=pickerUri(target);
+            if(!available(pickerTarget)){report("워치 벨소리 목록에서 곡을 열 수 없습니다. 휴대폰에서 다시 보내 주세요.");return;}
+            Uri before=current();
+            if(!pickerTarget.equals(before)){
                 if(!Settings.System.canWrite(ctx)){report(MANUAL);return;}
-                Uri before=current();
                 if(!prefs.contains("original") || !same(before,decoded("lastApplied")))
                     prefs.edit().putString("original",encode(before)).commit();
-                RingtoneManager.setActualDefaultRingtoneUri(ctx,TYPE,target);
+                RingtoneManager.setActualDefaultRingtoneUri(ctx,TYPE,pickerTarget);
             }
-            if(same(target,current())){
+            if(pickerTarget.equals(current())){
                 prefs.edit().putString("lastApplied",target.toString()).commit();
                 report("워치 기본 벨소리에 적용됐습니다. 실제 전화로 소리를 확인해 주세요.");
             }else report("파일이 저장됐습니다. 워치 설정에서 곡을 직접 선택해 주세요.");

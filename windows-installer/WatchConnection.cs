@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 internal sealed partial class Installer {
-    private const string WatchHash = "55a0857eaf511441bc00d9653f655242826f5cebf82a2dd74b591c3e94ca897a";
+    private const string WatchHash = "b58be64878f3838fa0c50317488ae9600af2651aa9a368c8f11ae5be2409c127";
 
     private static string Endpoint(string text) {
         var match = Regex.Match(text.Trim(),@"^(\d{1,3}(?:\.\d{1,3}){3}|\[[0-9a-fA-F:]+\]):(\d{1,5})$");
@@ -77,7 +77,7 @@ internal sealed partial class Installer {
                 using (var sha = SHA256.Create()) return BitConverter.ToString(sha.ComputeHash(file)).Replace("-","").ToLowerInvariant();
             });
             if (hash != WatchHash)
-                throw new InvalidOperationException("워치벨 v1.0.0 공식 워치용 APK를 선택하세요. 휴대폰용 APK도 파일 이름을 확인해 주세요.");
+                throw new InvalidOperationException("워치벨 v1.0.1 공식 워치용 APK를 선택하세요. 휴대폰용 APK도 파일 이름을 확인해 주세요.");
             string adb = await PrepareTools();
             var current = await GetWatch(adb,target.Serial);
             if (current == null || current.HardwareId != target.HardwareId)

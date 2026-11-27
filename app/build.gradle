@@ -6,12 +6,12 @@ android {
         applicationId 'kr.lebistudio.watchtone'
         minSdk 30
         targetSdk 35
-        versionName '1.0.0'
+        versionName '1.0.1'
     }
     flavorDimensions 'device'
     productFlavors {
-        phone { dimension 'device'; versionCode 10001 }
-        watch { dimension 'device'; versionCode 10002 }
+        phone { dimension 'device'; versionCode 10011 }
+        watch { dimension 'device'; versionCode 10012 }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
